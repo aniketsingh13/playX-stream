@@ -1,0 +1,50 @@
+.home_nav{
+    z-index: 1;
+}
+.home_centerContainer{
+    position: relative;
+}
+.home_img{
+    width: 100%;
+    height: 32rem;
+}
+.category_container{
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.centerContainer_btn{
+  background-color: var(--offwhite);
+  color: var(--primary-color-hover);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 3rem;
+    right: 35rem;
+}
+.category_img{
+    width: 22rem;
+    height: 12rem;
+}
+.categoriesType_container{
+    position: relative;
+}
+.categroies_nameDiv{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+  background-color: #00000080;
+  width: 100%;
+  cursor: pointer;
+}
+.categories_Name{
+    text-align: center;
+    color: var(--offwhite);
+}
+.categroies_nameDiv:hover{
+    background-color: transparent;
+}
+.category_footer{
+    text-align: center;
+}
+.fotter_icons{
+    color: var(--secondary-color);
+}
