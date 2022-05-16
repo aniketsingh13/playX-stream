@@ -1,0 +1,7 @@
+.navbar_cont{
+    justify-content: space-between;
+    cursor: pointer;
+}
+.Nav_Title{
+    color: var(--secondary-color);
+}
