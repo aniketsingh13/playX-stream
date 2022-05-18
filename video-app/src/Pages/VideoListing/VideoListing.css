@@ -1,0 +1,23 @@
+
+.videoListing_navbar{
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    box-shadow:  0 1px 3px 0 var(--boxShadow-color);
+}
+.videoListing_aside{
+    flex: 1;
+    border-right: 1px solid var(--border-color);
+    height: 88vh;
+}
+.videoListing_main{
+    flex: 5;
+}
+.VideoListing_Card {
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+.VideoListing_category{
+    gap: 2rem;
+}

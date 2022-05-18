@@ -1,0 +1,10 @@
+.chips{
+    background-color: var(--secondary-color);
+    color: var(--offwhite);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.chips:hover{
+    color: var(--secondary-color);
+    background-color: var(--offwhite);
+}

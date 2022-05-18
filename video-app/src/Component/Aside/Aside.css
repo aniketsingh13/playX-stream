@@ -1,0 +1,14 @@
+.aside_icon{
+color: var(--secondary-color);
+}
+.aside_Iconscontainer{
+    width: 90%;
+    border-radius: 5px;
+}
+.aside_Iconscontainer.active{
+    background-color: var(--offwhite);
+}
+.aside_Iconscontainer:hover{
+    background-color: var(--offwhite);
+}
+
