@@ -21,7 +21,7 @@ const SingleVideoCard = ({ videos }) => {
           <img src={avatar} alt={alt} className="singlePage_avatar" />
           <div>
             <h4 className="p-xss ml-s f-s font-xl">{creatorName}</h4>
-            <h4 className="p-xss ml-s f-s font-xl">{views}</h4>
+            <h4 className="p-xss ml-s f-s font-xl">{views} Views</h4>
           </div>
         </div>
         <div className="flex">
