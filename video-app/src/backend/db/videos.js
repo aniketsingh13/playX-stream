@@ -7,7 +7,7 @@
 
 export const videos = [
   {
-    _id: "anckdes_al",
+    _id: "1O6Qstncpnc",
     alt: "Games Video",
     views: "29M",
     duration: "2:41",
@@ -19,7 +19,7 @@ export const videos = [
     description: "Always be the first to get #HogwartsLegacy news at PS5"
   },
   {
-    _id: "dsljs_lsdflk",
+    _id: "hh5HV4iic1Y",
     alt: "Games Video",
     views: "12M",
     duration: "2:15",
@@ -31,7 +31,7 @@ export const videos = [
     description: "Every treasure has its price. Watch the story trailer for Uncharted 4: A Thief's End, coming"
   },
   {
-    _id: "lsfdk_llkelncl",
+    _id: "qIQ3xNqkVC4",
     alt: "Games Video",
     views: "23M",
     duration: "1:38",
@@ -43,7 +43,7 @@ export const videos = [
     description: "Marvel's Spider-Man 2 is the next game in PlayStation's critically acclaimed Marvel's Spider-Man franchise. Developed by Insomniac Games in collaboration with Marvel Games and PlayStation for the PS5 console."
   },
   {
-    _id: "aldl_lsla",
+    _id: "cpjDGC4vuDU",
     alt: "Controller",
     views: "2.4M",
     duration: "1:06",
@@ -55,7 +55,7 @@ export const videos = [
     description: "Experience the modernized design of the Xbox Wireless Controller, featuring sculpted surfaces and refined geometry for enhanced comfort during gameplay. Stay on target with textured grip and a hybrid D-pad. Seamlessly capture and share content with a dedicated Share button. Quickly pair with, play on, and switch between devices including Xbox Series X|S, Xbox One, Windows 10 PC, and Android. iOS support coming in the future. * "
   },
   {
-    _id: "kjdlsal_alsjs",
+    _id: "0PWZ3nRMsfE",
     alt: "controller",
     views: "31K",
     duration: "1:02",
@@ -67,7 +67,7 @@ export const videos = [
     description: "Take a look at the Forza Horizon 5 Xbox Controller!"
   },
   {
-    _id: "alfalsd_kljli",
+    _id: "dD62_vBpuJ8",
     alt: "Controller",
     views: "6.1M",
     duration: "1:29",
@@ -79,7 +79,7 @@ export const videos = [
     description: "SCUF Vantage provides the purest connection between you and your game. Every aspect of this controller is designed to improve performance, comfort and maximize hand use."
   },
   {
-    _id: "aldfsjlads_al_al",
+    _id: "cI9e96rIDAw",
     alt: "Accessories",
     views: "131K",
     duration: "0:52",
@@ -91,7 +91,7 @@ export const videos = [
     description: "Enjoy a seamless, wireless experience with a headset fine-tuned for 3D Audio on PS5™ consoles Built for gamers, the headset features noise-cancelling microphones and easy-access controls."
   },
   {
-    _id: "aldsj_alsk_ljkj",
+    _id: "ZPHvH7D6qQY",
     alt: "Accessories",
     views: "797K",
     duration: "1:11",
@@ -103,7 +103,7 @@ export const videos = [
     description: "Game loud and clear with the all-new Xbox Wireless Headset, featuring auto-mute and voice isolation for crystal-clear chat, intuitive design, and direct pairing to your console."
   },
   {
-    _id: "sdsdsa_adslk_sa",
+    _id: "w4ylPcVQ-X4",
     alt: "Accessories",
     views: "116K",
     duration: "6:36",
@@ -115,7 +115,7 @@ export const videos = [
     description: "New Xbox Wireless Headset!"
   },
   {
-    _id: "kkdsflk_alksd_ald",
+    _id: "Ngu-q9JfpeA",
     alt: "Console",
     views: "876K",
     duration: "0:43",
@@ -127,7 +127,7 @@ export const videos = [
     description: "Don't overcomplicate it. Xbox Series S is simply next gen Speed Performance"
   },
   {
-    _id: "lads_kaj_alsdk",
+    _id: "RkC0l4iekYo",
     alt: "Console",
     views: "39M",
     duration: "3:12",
@@ -139,7 +139,7 @@ export const videos = [
     description: "At launch, we will offer two options: a PlayStation®5 console with an Ultra HD Blu-ray disc drive and a PlayStation®5 Digital Edition without a disc drive. The PS5 gameplay experience will be the same, so the choice is all yours. While there are some slight differences in the look of each model, for the overall design, we wanted to deliver a console that's bold, stunning, and unlike any previous generation of PlayStation."
   },
   {
-    _id: "sdkl_lllsf",
+    _id: "nzeCqKf0PVI",
     alt: "Console",
     views: "1M",
     duration: "7:58",
@@ -151,7 +151,7 @@ export const videos = [
     description: "Ps5 ya Xbox, aaj alsi sach jaan lia jae !"
   },
   {
-    _id: "ldaksk_jlsfa_alsl",
+    _id: "dtaJzUbQS7E",
     alt: "Comedy",
     views: "28M",
     duration: "8:09",

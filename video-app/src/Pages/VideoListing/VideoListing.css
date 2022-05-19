@@ -9,7 +9,7 @@
 .videoListing_aside{
     flex: 1;
     border-right: 1px solid var(--border-color);
-    height: 88vh;
+    height: 87vh;
 }
 .videoListing_main{
     flex: 5;

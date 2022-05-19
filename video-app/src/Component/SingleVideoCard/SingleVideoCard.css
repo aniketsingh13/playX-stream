@@ -1,0 +1,22 @@
+.singleVideo_card{
+    width: 100%;
+}
+.singleVideo_card iframe{
+    width: 100%;
+    height: 64vh;
+    border-radius: 10px;
+}
+.singlePage_avatar{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+}
+.singleVideo_center {
+    justify-content: space-between;
+}
+.singlepage_iconText {
+    color: var(--secondary-color);
+}
+.singlePage_description{
+    line-height: 1.8;
+}
