@@ -1,6 +1,9 @@
-export const filterVideo=({video,filter})=>{
-      if(filter !== "All"){
-       return video?.filter((video) => video.category === filter)
-      }
-      return video;
+const filterVideo=(video,selectCategory)=>{
+    const filteredVideo = [...video];
+    if(selectCategory !== "All"){
+          return filteredVideo.filter((video) => video.category === selectCategory)
+    }
+    return filteredVideo
 }
+
+export {filterVideo}

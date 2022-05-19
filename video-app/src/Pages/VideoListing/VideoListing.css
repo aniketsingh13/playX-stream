@@ -21,3 +21,13 @@
 .VideoListing_category{
     gap: 2rem;
 }
+.category_Name{
+    color: var(--offwhite);
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.category_Name:hover{
+    color: var(--secondary-color);
+    background-color: var(--offwhite);
+}
