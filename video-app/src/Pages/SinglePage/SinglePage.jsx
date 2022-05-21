@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Aside, SingleVideoCard } from "../../Component";
 import Navbar from "../../Component/Navbar/Navbar";
 import "./SinglePage.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { SingleVideo } from "../../Utils/SingleVideo";
+import { useVideo } from "../../Context/VideoContext";
 
 const SinglePage = () => {
   const { Id } = useParams();
-  const [videos, setVideos] = useState([]);
-  const [error, setError] = useState(false);
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get("/api/videos");
-        setVideos(response.data.videos);
-      } catch (error) {
-        setError(true);
-      }
-    })();
-  }, []);
+  const{state} = useVideo();
+  const {videos,error} = state;
   const video = SingleVideo(videos, Id);
 
   return (

@@ -1,7 +1,8 @@
 
 import React from 'react'
-import "./Page404.css"
-const Page404 = () => {
+import "./NotFound.css";
+
+const NotFound = () => {
   return (
     <div className='flex flex-center flex-column p-xss '>
         <h2 className='page404_text f-l font-xl'>Page Not Found</h2>
@@ -10,4 +11,4 @@ const Page404 = () => {
   )
 }
 
-export default Page404
+export default NotFound

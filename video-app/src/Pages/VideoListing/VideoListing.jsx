@@ -1,44 +1,15 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React from "react";
 import "./VideoListing.css";
 import { Aside, Navbar, VideoCard } from "../../Component";
-import axios from "axios";
 import { filterVideo } from "../../Utils/filterVideo";
-import ReducerFunction from "../../Reducer/ReducerFunction";
+import { useVideo } from "../../Context/VideoContext";
 
 const VideoListing = () => {
-  const [loading, setLoading] = useState(true);
-  const [state, dispatch] = useReducer(ReducerFunction, {
-    videos: [],
-    categories: [],
-    selectedCategory: "All",
-  });
-  const { videos, categories, selectedCategory } = state;
+  const {state,dispatch} = useVideo();
+  const {videos,categories,selectedCategory} = state;
   const filterCard = filterVideo(videos, selectedCategory);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get("/api/videos");
-        setLoading(false);
-        dispatch({ type: "SET_VIDEO", payload: response.data.videos });
-      } catch (error) {
-        console.log(error.response);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get("/api/categories");
-        setLoading(false);
-        dispatch({ type: "SET_CATEGORIES", payload: response.data.categories });
-      } catch (error) {
-        console.log(error.response);
-      }
-    })();
-  }, []);
-
+  
   return (
     <div>
       <div className="videoListing_navbar">

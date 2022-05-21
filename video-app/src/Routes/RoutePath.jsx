@@ -2,7 +2,7 @@ import React from 'react'
 import {Routes,Route} from "react-router-dom"
 import Mockman from "mockman-js";
 import Home from "../Pages/Home/Home";
-import { Page404, SinglePage, VideoListing } from '../Pages';
+import { NotFound, SinglePage, VideoListing } from '../Pages';
 
 
   const RoutePath = () => {
@@ -12,7 +12,7 @@ import { Page404, SinglePage, VideoListing } from '../Pages';
           <Route path='/' element={<Home />} />
           <Route path='/videolisting' element={<VideoListing />} />
           <Route path='/videolisting/:Id'   element={<SinglePage />} />
-          <Route path='*' element={<Page404 />} />
+          <Route path='*' element={<NotFound />} />
           <Route path='/mockman' element={<Mockman />} />
           </Routes>
       </div>
