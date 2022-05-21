@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user,setUser } = useAuth();
+  const logoutHandler = () =>{
+    localStorage.removeItem('token');
+    setUser(null)
+  }
   return (
     <div>
       <div className="navbar_cont flex p-m">
@@ -13,7 +17,7 @@ const Navbar = () => {
           <h3 className="f-m font-l ">PlayX-Stream</h3>
         </Link>
         {user ? (
-          <button>logout</button>
+          <button className="logout_btn f-m font-l mr-s" onClick={logoutHandler}>logout</button>
         ) : (
           <Link to="/login" style={{ color: "black" }}>
             <div className="f-l  mr-s">

@@ -6,3 +6,13 @@
 .Nav_Title{
     color: var(--secondary-color);
 }
+.logout_btn{
+    border: none;
+    background-color: var(--offWhite);
+    cursor: pointer;
+}
+
+.logout_btn:hover{
+  color: var(--primary-color-hover);
+}
+    
