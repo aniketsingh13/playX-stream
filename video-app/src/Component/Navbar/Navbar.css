@@ -1,6 +1,7 @@
 .navbar_cont{
     justify-content: space-between;
     cursor: pointer;
+    background-color: white;
 }
 .Nav_Title{
     color: var(--secondary-color);

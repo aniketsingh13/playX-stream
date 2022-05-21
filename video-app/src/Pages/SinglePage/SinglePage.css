@@ -1,0 +1,10 @@
+.SinglePageListing_aside{
+    flex: 1;
+    border-right: 1px solid var(--border-color);
+    height: 87vh;
+}
+
+.SinglePageListing_main{
+    flex: 5;
+    justify-content: center;
+}
