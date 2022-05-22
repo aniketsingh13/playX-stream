@@ -39,6 +39,7 @@ const VideoProvider =({children}) =>{
       }
     })();
   }, []);
+  
     return (
         <VideoContext.Provider value={{state,dispatch,error}}>
             {children}
