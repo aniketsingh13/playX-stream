@@ -2,7 +2,8 @@ import React from 'react'
 import {Routes,Route} from "react-router-dom"
 import Mockman from "mockman-js";
 import Home from "../Pages/Home/Home";
-import { Login,  NotFound, Signup, SinglePage, VideoListing } from '../Pages';
+import { Login,  NotFound, PlayList, Signup, SinglePage, VideoListing } from '../Pages';
+import RequireAuth from '../Utils/RequireAuth';
 
 
   const RoutePath = () => {
@@ -14,6 +15,7 @@ import { Login,  NotFound, Signup, SinglePage, VideoListing } from '../Pages';
           <Route path='/videolisting/:Id'   element={<SinglePage />} />
           <Route path='/login' element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/playlist" element={<RequireAuth><PlayList /></RequireAuth>} />
           <Route path='*' element={<NotFound />} />
           <Route path='/mockman' element={<Mockman />} />
           </Routes>

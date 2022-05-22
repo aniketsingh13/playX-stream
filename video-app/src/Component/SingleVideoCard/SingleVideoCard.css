@@ -20,3 +20,6 @@
 .singlePage_description{
     line-height: 1.8;
 }
+.singleVideo_icons{
+    cursor: pointer;
+}

@@ -11,7 +11,7 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [error,setError] = useState(null)
   const {setUser} = useAuth();
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation()
   
   const loginHandler = async(e) => {
@@ -23,7 +23,7 @@ const Login = () => {
         })
         localStorage.setItem("token",response.data.encodedToken)
         setUser(response.data.foundUser)
-        Navigate(location.state?.from?.pathname || "/", { replace: true })
+        navigate(location.state?.from?.pathname || "/", { replace: true })
       } catch (error) {
         console.log(error.response);
         setError("something went worng 🥺")
