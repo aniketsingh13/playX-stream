@@ -41,7 +41,7 @@ const PlaylistModal = ({ video, setIsModal }) => {
   const playListHandler = async (e, playlistId, videoId) => {
     if (e.target.checked) {
       try {
-        await axios.post(
+       const response = await axios.post(
           `/api/user/playlists/${playlistId}`,
           {
             video,
@@ -54,21 +54,21 @@ const PlaylistModal = ({ video, setIsModal }) => {
         );
         featureDispatch({
           type: "UPDATED_PLAYLIST",
-          payload: { video, playlistId },
+          payload: response.data.playlist,
         });
       } catch (error) {
         console.log(error.response);
       }
     } else {
       try {
-        await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
+     const response =   await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
           headers: {
             authorization: encodedToken,
           },
         });
         featureDispatch({
-          type: "DELETE_FROM_PLAYLIST",
-          payload: { playlistId, videoId },
+          type: "REMOVE_FROM_PLAYLIST",
+          payload: response.data.playlist,
         });
       } catch (error) {
         console.log(error.response);
