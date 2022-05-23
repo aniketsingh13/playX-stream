@@ -3,9 +3,11 @@ import { useAuth } from "../Context/AuthContext"
 
 
 
-export const RequireAuth = ({children}) => {
+ const RequireAuth = ({children}) => {
     const location= useLocation()
-    const {encodedToken} = useAuth()
+    const {user} = useAuth()
 
-  return encodedToken ? children : <Navigate to="/login" state={{from: location}} replace />
+  return user ? (children) : (<Navigate to="/login" state={{from: location}} replace />)
 }
+
+export default RequireAuth

@@ -6,6 +6,7 @@ import SinglePage from "./SinglePage/SinglePage";
 import NotFound from "./NotFound/NotFound";
 import Login from "./Auth/Login/Login";
 import Signup from "./Auth/Signup/Signup";
+import PlayList from "./PlayList/PlayList";
 
 
-export {Home,VideoListing,SinglePage,NotFound,Login,Signup}
+export {Home,VideoListing,SinglePage,NotFound,Login,Signup,PlayList}

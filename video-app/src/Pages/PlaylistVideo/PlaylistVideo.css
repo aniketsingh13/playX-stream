@@ -1,0 +1,14 @@
+.playlistVideo_container{
+    gap: 3rem
+}
+.playList_delete{
+    justify-content: space-between;
+}
+.playlist_deletebtn{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+.playlist_deletebtn:hover{
+  color: var(--primary-color-hover);
+}

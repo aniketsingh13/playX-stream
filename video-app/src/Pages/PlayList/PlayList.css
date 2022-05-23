@@ -1,0 +1,26 @@
+
+.playList_navbar{
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    box-shadow:  0 1px 3px 0 var(--boxShadow-color);
+}
+.playlist_aside{
+    flex: 1;
+    border-right: 1px solid var(--border-color);
+    height: 87vh;
+}
+.playList_main{
+    flex: 5;
+}
+.playList_titleContainer{
+    gap: 3rem
+}
+.playList_title{
+    width: 20rem;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    box-shadow:  0 1px 3px 0 var(--boxShadow-color);
+    color: var(--secondary-color);
+}

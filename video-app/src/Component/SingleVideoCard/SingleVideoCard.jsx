@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SingleVideoCard.css";
 import { BiLike } from "react-icons/bi";
 import { RiPlayListAddFill } from "react-icons/ri";
 import { MdOutlineWatchLater } from "react-icons/md";
+import { useAuth } from "../../Context/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
+import PlaylistModal from "../PlaylistModal/PlaylistModal";
 
 const SingleVideoCard = ({ videos }) => {
   const { _id, title, views, avatar, description, creatorName, alt } = videos;
+  const [isModal,setIsModal] = useState(false);
+  const {user} = useAuth();
+  const navigate= useNavigate();
+  const location = useLocation()
+
+    const savePlaylistModal = () =>{
+       if(user){
+         setIsModal(true)
+       }else{
+         navigate("/login",{ replace: true, state: { from: location } })
+       }
+    }
+  
   return (
     <div className="singleVideo_card">
       <iframe
@@ -24,7 +40,7 @@ const SingleVideoCard = ({ videos }) => {
             <h4 className="p-xss ml-s f-s font-xl">{views} Views</h4>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex singleVideo_icons">
           <div className="flex mr-l">
             <BiLike className="f-s " />
             <span className="singlepage_iconText ml-s f-s font-xl mb-s">
@@ -32,7 +48,7 @@ const SingleVideoCard = ({ videos }) => {
               LIKE
             </span>
           </div>
-          <div className="flex mr-l">
+          <div className="flex mr-l" onClick={savePlaylistModal}>
             <RiPlayListAddFill className="f-s " />
             <span className="singlepage_iconText ml-s f-s font-xl mb-s">
               {" "}
@@ -51,6 +67,9 @@ const SingleVideoCard = ({ videos }) => {
       <p className="mt-l mb-l f-s font-m singlePage_description">
         {description}
       </p>
+      {isModal && (
+        <PlaylistModal video={videos} setIsModal={setIsModal} />
+      )}
     </div>
   );
 };

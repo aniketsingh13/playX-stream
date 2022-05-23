@@ -29,7 +29,7 @@ const Aside = () => {
           </Link>
         </div>
         <div className="aside_Iconscontainer  mt-s">
-          <Link to="" className="flex f-m p-xss">
+          <Link to="/playlist" className="flex f-m p-xss">
             <span className="aside_icon ">
               <CgPlayList />
             </span>
