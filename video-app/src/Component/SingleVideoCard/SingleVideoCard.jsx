@@ -6,20 +6,42 @@ import { MdOutlineWatchLater } from "react-icons/md";
 import { useAuth } from "../../Context/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
+import {AiFillLike} from "react-icons/ai"
+import { useFeature } from "../../Context/FeatureContext";
+import likePlaylist from "../../Utils/likePlaylist";
+import Removefromlike from "../../Service/LikeService/Removefromlike";
+import Addtolike from "../../Service/LikeService/Addtolike";
 
-const SingleVideoCard = ({ videos }) => {
-  const { _id, title, views, avatar, description, creatorName, alt } = videos;
+const SingleVideoCard = ({ _id, title, views, avatar, description, creatorName, alt,video }) => {
   const [isModal,setIsModal] = useState(false);
-  const {user} = useAuth();
+  const {user } = useAuth();
   const navigate= useNavigate();
-  const location = useLocation()
-
+  const location = useLocation();
+  const {featureState,featureDispatch} = useFeature()
+    const {likedVideos} = featureState;
+    const likeVideo = likePlaylist(likedVideos,_id) ?? {};
+    
+     
     const savePlaylistModal = () =>{
        if(user){
          setIsModal(true)
        }else{
          navigate("/login",{ replace: true, state: { from: location } })
        }
+    }
+    
+     
+    const likeHandler=()=>{
+      if(user){
+        if(likeVideo){
+           Removefromlike(_id,featureDispatch)
+        }else{
+           Addtolike(video,featureDispatch)
+        }
+      }else{
+        navigate("/login",{ replace: true, state: { from: location } })
+      }
+     
     }
   
   return (
@@ -41,11 +63,11 @@ const SingleVideoCard = ({ videos }) => {
           </div>
         </div>
         <div className="flex singleVideo_icons">
-          <div className="flex mr-l">
-            <BiLike className="f-s " />
+          <div className="flex mr-l" onClick={likeHandler}>
+            {likeVideo ? (<AiFillLike className="f-s" />) : (<BiLike className="f-s " />)}
             <span className="singlepage_iconText ml-s f-s font-xl mb-s">
               {" "}
-              LIKE
+              {likeVideo ? ('liked') : ('like')}
             </span>
           </div>
           <div className="flex mr-l" onClick={savePlaylistModal}>
@@ -68,7 +90,7 @@ const SingleVideoCard = ({ videos }) => {
         {description}
       </p>
       {isModal && (
-        <PlaylistModal video={videos} setIsModal={setIsModal} />
+        <PlaylistModal video={video} setIsModal={setIsModal} />
       )}
     </div>
   );

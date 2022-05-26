@@ -2,7 +2,7 @@ import React from 'react'
 import {Routes,Route} from "react-router-dom"
 import Mockman from "mockman-js";
 import Home from "../Pages/Home/Home";
-import { Login,  NotFound, PlayList, Signup, SinglePage, VideoListing } from '../Pages';
+import { Like, Login,  NotFound, PlayList, Signup, SinglePage, VideoListing } from '../Pages';
 import RequireAuth from '../Utils/RequireAuth';
 import PlaylistVideo from '../Pages/PlaylistVideo/PlaylistVideo';
 
@@ -18,6 +18,7 @@ import PlaylistVideo from '../Pages/PlaylistVideo/PlaylistVideo';
           <Route path="/signup" element={<Signup />} />
           <Route path="/playlist" element={<RequireAuth><PlayList /></RequireAuth>} />
           <Route path="/playlist/:Id" element={<RequireAuth><PlaylistVideo /></RequireAuth>} />
+          <Route path='/Like'  element={<RequireAuth><Like /></RequireAuth>} />
           <Route path='*' element={<NotFound />} />
           <Route path='/mockman' element={<Mockman />} />
           </Routes>
