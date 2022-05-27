@@ -8,6 +8,7 @@ const FeatureProvider = ({children}) => {
     playlists : [],
     likedVideos: [],
     watchlater: [],
+    history : []
   })
 
     return (

@@ -1,0 +1,29 @@
+.history_navbar{
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    box-shadow:  0 1px 3px 0 var(--boxShadow-color);
+}
+
+.history_aside{
+    flex: 1;
+    border-right: 1px solid var(--border-color);
+    height: 87vh;
+}
+
+.history_Main{
+    flex: 5;
+}
+
+.historyClear_btn{
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+.historyClear_btn:hover{
+    color: var(--primary-color-hover);
+}
+.historyVideoContainer{
+    gap: 3rem
+}

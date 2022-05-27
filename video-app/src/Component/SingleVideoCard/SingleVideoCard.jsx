@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./SingleVideoCard.css";
 import { BiLike } from "react-icons/bi";
 import { RiPlayListAddFill } from "react-icons/ri";
-import { MdOutlineWatchLater,MdWatchLater } from "react-icons/md";
+import { MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
 import { useAuth } from "../../Context/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
-import {AiFillLike} from "react-icons/ai"
+import { AiFillLike } from "react-icons/ai";
 import { useFeature } from "../../Context/FeatureContext";
 import likePlaylist from "../../Utils/likePlaylist";
 import Removefromlike from "../../Service/LikeService/Removefromlike";
@@ -15,53 +15,56 @@ import RemoveFromWatch from "../../Service/WatchLater/RemoveFromWatch";
 import AddtoWatch from "../../Service/WatchLater/AddtoWatch";
 import watchPlaylist from "../../Utils/watchPlaylist";
 
-
-const SingleVideoCard = ({ _id, title, views, avatar, description, creatorName, alt,video }) => {
-  const [isModal,setIsModal] = useState(false);
-  const {user } = useAuth();
-  const navigate= useNavigate();
+const SingleVideoCard = ({
+  _id,
+  title,
+  views,
+  avatar,
+  description,
+  creatorName,
+  alt,
+  video,
+}) => {
+  const [isModal, setIsModal] = useState(false);
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const location = useLocation();
-  const {featureState,featureDispatch} = useFeature()
-    const {likedVideos,watchlater} = featureState;
-    const likeVideo = likePlaylist(likedVideos,_id) ;
-    const watchLaterVideo = watchPlaylist(watchlater,_id);
-   
+  const { featureState, featureDispatch } = useFeature();
+  const { likedVideos, watchlater } = featureState;
+  const likeVideo = likePlaylist(likedVideos, _id);
+  const watchLaterVideo = watchPlaylist(watchlater, _id);
 
-    const savePlaylistModal = () =>{
-       if(user){
-         setIsModal(true)
-       }else{
-         navigate("/login",{ replace: true, state: { from: location } })
-       }
+  const savePlaylistModal = () => {
+    if (user) {
+      setIsModal(true);
+    } else {
+      navigate("/login", { replace: true, state: { from: location } });
     }
-    
-     
-    const likeHandler=()=>{
-      if(user){
-        if(likeVideo){
-           Removefromlike(_id,featureDispatch)
-        }else{
-           Addtolike(video,featureDispatch)
-        }
-      }else{
-        navigate("/login",{ replace: true, state: { from: location } })
-      }
-     
-    }
-    
-    const watchHandler = () =>{
-      if(user){
-        if(watchLaterVideo){
-          RemoveFromWatch(_id,featureDispatch)
-         
-        }else{
-          AddtoWatch(video,featureDispatch)
-        }
-      }else{
-        navigate("/login",{ replace: true, state: { from: location } })
-      }
-    }
+  };
 
+  const likeHandler = () => {
+    if (user) {
+      if (likeVideo) {
+        Removefromlike(_id, featureDispatch);
+      } else {
+        Addtolike(video, featureDispatch);
+      }
+    } else {
+      navigate("/login", { replace: true, state: { from: location } });
+    }
+  };
+
+  const watchHandler = () => {
+    if (user) {
+      if (watchLaterVideo) {
+        RemoveFromWatch(_id, featureDispatch);
+      } else {
+        AddtoWatch(video, featureDispatch);
+      }
+    } else {
+      navigate("/login", { replace: true, state: { from: location } });
+    }
+  };
 
   return (
     <div className="singleVideo_card">
@@ -81,12 +84,16 @@ const SingleVideoCard = ({ _id, title, views, avatar, description, creatorName, 
             <h4 className="p-xss ml-s f-s font-xl">{views} Views</h4>
           </div>
         </div>
-        <div className="flex singleVideo_icons" >
-          <div className="flex mr-l" onClick={likeHandler} >
-            {likeVideo ? (<AiFillLike className="f-s" />) : (<BiLike className="f-s " />)}
+        <div className="flex singleVideo_icons">
+          <div className="flex mr-l" onClick={likeHandler}>
+            {likeVideo ? (
+              <AiFillLike className="f-s" />
+            ) : (
+              <BiLike className="f-s " />
+            )}
             <span className="singlepage_iconText ml-s f-s font-xl mb-s">
               {" "}
-              {likeVideo ? ('liked') : ('like')}
+              {likeVideo ? "liked" : "like"}
             </span>
           </div>
           <div className="flex mr-l" onClick={savePlaylistModal}>
@@ -97,7 +104,11 @@ const SingleVideoCard = ({ _id, title, views, avatar, description, creatorName, 
             </span>
           </div>
           <div className="flex" onClick={watchHandler}>
-            {watchLaterVideo ? <MdWatchLater className="f-s" />:<MdOutlineWatchLater className="f-s " />}
+            {watchLaterVideo ? (
+              <MdWatchLater className="f-s" />
+            ) : (
+              <MdOutlineWatchLater className="f-s " />
+            )}
             <span className="singlepage_iconText ml-s f-s font-xl mb-s">
               {" "}
               WATCH LATER
@@ -108,9 +119,7 @@ const SingleVideoCard = ({ _id, title, views, avatar, description, creatorName, 
       <p className="mt-l mb-l f-s font-m singlePage_description">
         {description}
       </p>
-      {isModal && (
-        <PlaylistModal video={video} setIsModal={setIsModal} />
-      )}
+      {isModal && <PlaylistModal video={video} setIsModal={setIsModal} />}
     </div>
   );
 };
