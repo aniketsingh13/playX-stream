@@ -10,7 +10,7 @@ const Removefromlike = async(Id,featureDispatch) => {
         
         featureDispatch({type: "DISLIKED_VIDEO",payload: response.data.likes})
       } catch (error) {
-        console.log(error)
+        console.log(error.response)
       }
 }
 

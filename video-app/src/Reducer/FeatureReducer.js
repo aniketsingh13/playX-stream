@@ -27,6 +27,8 @@ const FeatureReducer = (state, action) => {
       return { ...state, likedVideos: action.payload };
     case "DISLIKED_VIDEO":
       return { ...state, likedVideos: action.payload };
+      case "WATCH_LATER":
+        return {...state,watchlater: action.payload}
     default:
       throw new Error("Action type not found");
   }

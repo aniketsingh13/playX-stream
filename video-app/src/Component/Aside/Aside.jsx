@@ -37,7 +37,7 @@ const Aside = () => {
           </Link>
         </div>
         <div className="aside_Iconscontainer  mt-s">
-          <Link to="" className="flex f-m p-xss">
+          <Link to="/watchlater" className="flex f-m p-xss">
             <span className="aside_icon ">
               <MdOutlineWatchLater />
             </span>
