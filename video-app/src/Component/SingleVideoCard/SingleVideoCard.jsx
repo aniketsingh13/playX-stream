@@ -8,12 +8,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
 import { AiFillLike } from "react-icons/ai";
 import { useFeature } from "../../Context/FeatureContext";
-import likePlaylist from "../../Utils/likePlaylist";
 import Removefromlike from "../../Service/LikeService/Removefromlike";
 import Addtolike from "../../Service/LikeService/Addtolike";
 import RemoveFromWatch from "../../Service/WatchLater/RemoveFromWatch";
 import AddtoWatch from "../../Service/WatchLater/AddtoWatch";
-import watchPlaylist from "../../Utils/watchPlaylist";
+import isVideoinPlaylist from "../../Utils/isVideoinPlaylist";
 
 const SingleVideoCard = ({
   _id,
@@ -31,8 +30,8 @@ const SingleVideoCard = ({
   const location = useLocation();
   const { featureState, featureDispatch } = useFeature();
   const { likedVideos, watchlater } = featureState;
-  const likeVideo = likePlaylist(likedVideos, _id);
-  const watchLaterVideo = watchPlaylist(watchlater, _id);
+  const likeVideo = isVideoinPlaylist(likedVideos, _id);
+  const watchLaterVideo = isVideoinPlaylist(watchlater, _id);
 
   const savePlaylistModal = () => {
     if (user) {
