@@ -7,6 +7,8 @@ import NotFound from "./NotFound/NotFound";
 import Login from "./Auth/Login/Login";
 import Signup from "./Auth/Signup/Signup";
 import PlayList from "./PlayList/PlayList";
+import Like from "./Like/Like";
+import WatchLater from "./WatchLater/WatchLater";
+import History from "./History/History";
 
-
-export {Home,VideoListing,SinglePage,NotFound,Login,Signup,PlayList}
+export {Home,VideoListing,SinglePage,NotFound,Login,Signup,PlayList,Like,WatchLater,History}

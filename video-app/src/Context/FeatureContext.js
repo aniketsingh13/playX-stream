@@ -5,7 +5,10 @@ const FeatureContext = createContext();
 
 const FeatureProvider = ({children}) => {
   const [featureState,featureDispatch] = useReducer(FeatureReducer,{
-    playlists : []
+    playlists : [],
+    likedVideos: [],
+    watchlater: [],
+    history : []
   })
 
     return (

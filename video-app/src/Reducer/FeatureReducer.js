@@ -20,8 +20,17 @@ const FeatureReducer = (state, action) => {
             : { ...playlist }
         ),
       };
-      case "DELETE_PLAYLIST":
-        return{...state,playlists: action.payload}
+    case "DELETE_PLAYLIST":
+      return { ...state, playlists: action.payload };
+
+    case "LIKED_VIDEO":
+      return { ...state, likedVideos: action.payload };
+    case "DISLIKED_VIDEO":
+      return { ...state, likedVideos: action.payload };
+    case "WATCH_LATER":
+      return { ...state, watchlater: action.payload };
+    case "HISTORY":
+      return { ...state, history: action.payload };
     default:
       throw new Error("Action type not found");
   }
