@@ -3,12 +3,13 @@ import { Aside, Navbar, VideoCard } from '../../Component';
 import { useFeature } from '../../Context/FeatureContext';
 import "./Like.css";
 import { Link } from 'react-router-dom';
+import { useDocumentTitle } from '../../Hooks/useDocumentTitle';
 
 
 const Like = () => {
     const {featureState} = useFeature();
     const {likedVideos} = featureState;
-
+      useDocumentTitle("Like")
    
   return (
     <div>

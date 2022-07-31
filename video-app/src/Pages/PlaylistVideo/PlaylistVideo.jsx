@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../Context/AuthContext";
 import { useToast } from "../../Hooks/useToast";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
 
 const PlaylistVideo = () => {
   const { Id } = useParams();
@@ -17,7 +18,8 @@ const PlaylistVideo = () => {
   const { title, videos } = playlistVideos ;
  
   const {encodedToken} = useAuth();
-  const {showToast} = useToast()
+  const {showToast} = useToast();
+  useDocumentTitle("PlayListVideo")
 
    const deleteHandler = async(PlayId) =>{
              try {

@@ -3,11 +3,13 @@ import "./VideoListing.css";
 import { Aside, Navbar, VideoCard } from "../../Component";
 import { filterVideo } from "../../Utils/filterVideo";
 import { useVideo } from "../../Context/VideoContext";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
 
 const VideoListing = () => {
   const {state,dispatch} = useVideo();
   const {videos,categories,selectedCategory} = state;
   const filterCard = filterVideo(videos, selectedCategory);
+  useDocumentTitle("VideoListing")
 
   
   return (

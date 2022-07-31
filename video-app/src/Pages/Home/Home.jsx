@@ -4,7 +4,11 @@ import Navbar from "../../Component/Navbar/Navbar";
 import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai";
 
 import "./Home.css";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
 const Home = () => {
+
+  useDocumentTitle("Home")
+
   return (
     <div>
       <div className="home_nav">

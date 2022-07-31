@@ -6,6 +6,7 @@ import { Link, useNavigate} from 'react-router-dom';
 import SignupReducer from "../../../Reducer/SignupReducer";
 import { useAuth } from "../../../Context/AuthContext";
 import { useToast } from "../../../Hooks/useToast";
+import { useDocumentTitle } from "../../../Hooks/useDocumentTitle";
 
 const Signup = () => {
   const [state,dispatch]= useReducer(SignupReducer,{
@@ -20,7 +21,8 @@ const {email,password,firstName,lastName,confirmPassword} = state;
   const [error,setError] = useState(null);
    const {setUser} = useAuth()
    const navigate = useNavigate();
-   const {showToast} = useToast()
+   const {showToast} = useToast();
+   useDocumentTitle("Signup")
 
   const signupHandler = async(e) => {
     e.preventDefault();

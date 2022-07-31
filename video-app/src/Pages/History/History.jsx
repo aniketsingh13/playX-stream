@@ -5,11 +5,13 @@ import { useFeature } from "../../Context/FeatureContext";
 import ClearHistory from "../../Service/HistoryService/ClearHistory";
 import { Link } from "react-router-dom";
 import { useToast } from "../../Hooks/useToast";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
 
 const History = () => {
   const { featureDispatch, featureState } = useFeature();
   const { history } = featureState;
-  const {showToast} = useToast()
+  const {showToast} = useToast();
+  useDocumentTitle("History")
 
   const historyClearHandler = () => {
     ClearHistory(featureDispatch,showToast);
