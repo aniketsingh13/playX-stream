@@ -4,10 +4,12 @@ import { useFeature } from "../../Context/FeatureContext";
 import "./PlayList.css";
 import { Link } from "react-router-dom";
 import { BiLinkExternal } from "react-icons/bi";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
 
 const PlayList = () => {
   const { featureState } = useFeature();
   const { playlists } = featureState;
+  useDocumentTitle("PlayList")
   
   return (
     <div>

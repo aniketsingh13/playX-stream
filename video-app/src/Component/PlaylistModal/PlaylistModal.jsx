@@ -6,6 +6,7 @@ import axios from "axios";
 import { useFeature } from "../../Context/FeatureContext";
 import { useAuth } from "../../Context/AuthContext";
 import playlistId from "../../Utils/playlistId";
+import { useToast } from "../../Hooks/useToast";
 
 const PlaylistModal = ({ video, setIsModal }) => {
   const [showPlaylist, setShowPlaylist] = useState(false);
@@ -13,6 +14,7 @@ const PlaylistModal = ({ video, setIsModal }) => {
   const { featureState, featureDispatch } = useFeature();
   const { encodedToken } = useAuth();
   const { playlists } = featureState;
+  const {showToast} = useToast()
 
   const newPlaylistHandler = async (e) => {
     e.preventDefault();
@@ -56,8 +58,9 @@ const PlaylistModal = ({ video, setIsModal }) => {
           type: "UPDATED_PLAYLIST",
           payload: response.data.playlist,
         });
+        showToast("success","video added to playlist")
       } catch (error) {
-        console.log(error.response);
+        showToast("error","something went wrong")
       }
     } else {
       try {
@@ -70,8 +73,9 @@ const PlaylistModal = ({ video, setIsModal }) => {
           type: "REMOVE_FROM_PLAYLIST",
           payload: response.data.playlist,
         });
+        showToast("success","video removed from playlist")
       } catch (error) {
-        console.log(error.response);
+        showToast("error","something went wrong")
       }
     }
   };

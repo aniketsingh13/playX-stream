@@ -5,6 +5,8 @@ import axios from "axios";
 import { Link, useNavigate} from 'react-router-dom';
 import SignupReducer from "../../../Reducer/SignupReducer";
 import { useAuth } from "../../../Context/AuthContext";
+import { useToast } from "../../../Hooks/useToast";
+import { useDocumentTitle } from "../../../Hooks/useDocumentTitle";
 
 const Signup = () => {
   const [state,dispatch]= useReducer(SignupReducer,{
@@ -18,7 +20,9 @@ const {email,password,firstName,lastName,confirmPassword} = state;
   const [showPass,setShowPass] = useState(false);
   const [error,setError] = useState(null);
    const {setUser} = useAuth()
-   const navigate = useNavigate()
+   const navigate = useNavigate();
+   const {showToast} = useToast();
+   useDocumentTitle("Signup")
 
   const signupHandler = async(e) => {
     e.preventDefault();
@@ -32,8 +36,9 @@ const {email,password,firstName,lastName,confirmPassword} = state;
       localStorage.setItem("token",response.data.encodedToken)
       setUser(response.data.createdUser)
       navigate("/", { replace: true });
+      showToast("success","Singned in!")
     } catch (error) {
-      console.log(error.response)
+      showToast("error","something went wrong")
       setError("somethig went wrong 🥺")
     }
   }

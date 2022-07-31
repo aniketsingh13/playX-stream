@@ -5,12 +5,14 @@ import "./SinglePage.css";
 import { useParams } from "react-router-dom";
 import { useVideo } from "../../Context/VideoContext";
 import axios from "axios";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
 
 const SinglePage = () => {
   const { Id } = useParams();
   const{state} = useVideo();
   const {error} = state;
-  const [video,setVideo] = useState(null)
+  const [video,setVideo] = useState(null);
+  useDocumentTitle("SinglePage Video")
 
   
 

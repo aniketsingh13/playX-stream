@@ -3,12 +3,16 @@ import "./Navbar.css";
 import { BsPerson } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
+import { useToast } from "../../Hooks/useToast";
 
 const Navbar = () => {
   const { user,setUser } = useAuth();
+  const {showToast} = useToast();
+
   const logoutHandler = () =>{
     localStorage.removeItem('token');
     setUser(null)
+    showToast("success","Logged out!")
   }
   return (
     <div>

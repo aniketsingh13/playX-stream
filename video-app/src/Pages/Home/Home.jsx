@@ -4,7 +4,13 @@ import Navbar from "../../Component/Navbar/Navbar";
 import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai";
 
 import "./Home.css";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
+import { useVideo } from "../../Context/VideoContext";
 const Home = () => {
+  const { state, dispatch } = useVideo();
+  const { categories } = state;
+  useDocumentTitle("Home");
+
   return (
     <div>
       <div className="home_nav">
@@ -16,52 +22,33 @@ const Home = () => {
           src="https://res.cloudinary.com/aniket-singh/image/upload/v1652624759/Images/gotham-knights-keyart-2021_cqwmqx.jpg"
           alt="Gotham_Knights"
         />
-        <Link to="/videolisting" className="centerContainer_btn f-m font-l p-s">
+        <Link
+          to="/videolisting"
+          className="centerContainer_btn f-m font-l p-s"
+          onClick={() => dispatch({ type: "FILTERCATEGORIES", payload: "All" })}
+        >
           Explore Games
         </Link>
       </div>
       <h3 className="f-m font-l p-s">Categories</h3>
       <div className="flex flex-center category_container">
-        <div className="categoriesType_container ">
-          <img
-            src="https://res.cloudinary.com/aniket-singh/image/upload/v1652628177/Images/no-mans-sky-1621906996170_hguwaw.jpg"
-            className="category_img"
-            alt="games"
-          />
-          <div className="categroies_nameDiv p-xss">
-            <h3 className="categories_Name f-m font-xl p-xss">Games</h3>
-          </div>
-        </div>
-        <div className="categoriesType_container ">
-          <img
-            src="https://res.cloudinary.com/aniket-singh/image/upload/v1652637547/Images/l-intro-1645209424_msay4q.jpg"
-            className="category_img"
-            alt="controller"
-          />
-          <div className="categroies_nameDiv p-xss">
-            <h3 className="categories_Name f-m font-xl p-xss">Controller</h3>
-          </div>
-        </div>
-        <div className="categoriesType_container ">
-          <img
-            src="https://res.cloudinary.com/aniket-singh/image/upload/v1652638383/Images/https___hybrismediaprod.blob.core.windows.net_sys-master-phoenix-images-container_hd3_h57_9081222660126_RZ04-02670100-R3U1-0_yxptea.jpg"
-            className="category_img"
-            alt="accessories"
-          />
-          <div className="categroies_nameDiv p-xss">
-            <h3 className="categories_Name f-m font-xl p-xss">Accesssories</h3>
-          </div>
-        </div>
-        <div className="categoriesType_container ">
-          <img
-            src="https://res.cloudinary.com/aniket-singh/image/upload/v1652639014/Images/dYpWGqygVSVet396ZyNHWZ_ek2ecn.jpg"
-            className="category_img"
-            alt="console"
-          />
-          <div className="categroies_nameDiv p-xss">
-            <h3 className="categories_Name f-m font-xl p-xss">Console</h3>
-          </div>
-        </div>
+        {categories.map(({ _id, categoryName, image }) => (
+          <Link
+            to="/videolisting"
+            key={_id}
+            onClick={() =>
+              dispatch({ type: "FILTERCATEGORIES", payload: categoryName })
+            }
+            className="categoriesType_container"
+          >
+            <img src={image} alt={categoryName} className="category_img" />
+            <div className="categroies_nameDiv p-xss">
+              <h3 className="categories_Name f-m font-xl p-xss">
+                {categoryName}
+              </h3>
+            </div>
+          </Link>
+        ))}
       </div>
       <footer className="category_footer mt-l mb-m">
         <h3 className="f-s font-l">made with 💗 by Aniket Singh</h3>

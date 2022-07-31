@@ -3,7 +3,7 @@ import axios from "axios"
 
 
 
-const AddtoWatch = async(video,featureDispatch) => {
+const AddtoWatch = async(video,featureDispatch,showToast) => {
   try {
       const response = await axios.post(`/api/user/watchlater`,
      { video },{
@@ -12,8 +12,9 @@ const AddtoWatch = async(video,featureDispatch) => {
            }
       })
       featureDispatch({type: "WATCH_LATER", payload: response.data.watchlater})
+      showToast("success","video added to watchlater ")
   } catch (error) {
-      console.log(error.response)
+      showToast("error","something went wrong")
   }
 }
 

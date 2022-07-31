@@ -4,10 +4,12 @@ import { useFeature } from "../../Context/FeatureContext";
 import "./WatchLater.css";
 import { Aside } from "../../Component";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../../Hooks/useDocumentTitle";
 
 const WatchLater = () => {
   const { featureState } = useFeature();
   const { watchlater } = featureState;
+  useDocumentTitle("WatchLater")
   return (
     <div>
       <div className="watch_navbar">
