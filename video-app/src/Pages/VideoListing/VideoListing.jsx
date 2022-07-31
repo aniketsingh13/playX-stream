@@ -9,7 +9,7 @@ const VideoListing = () => {
   const {state,dispatch} = useVideo();
   const {videos,categories,selectedCategory} = state;
   const filterCard = filterVideo(videos, selectedCategory);
-  useDocumentTitle("VideoListing")
+  useDocumentTitle("Explore")
 
   
   return (
