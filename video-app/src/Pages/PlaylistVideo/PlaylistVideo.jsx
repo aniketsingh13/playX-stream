@@ -7,6 +7,7 @@ import "./PlaylistVideo.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../Context/AuthContext";
+import { useToast } from "../../Hooks/useToast";
 
 const PlaylistVideo = () => {
   const { Id } = useParams();
@@ -15,7 +16,8 @@ const PlaylistVideo = () => {
   let playlistVideos = getPlaylistVideo(playlists, Id) ?? {} ;
   const { title, videos } = playlistVideos ;
  
-  const {encodedToken} = useAuth()
+  const {encodedToken} = useAuth();
+  const {showToast} = useToast()
 
    const deleteHandler = async(PlayId) =>{
              try {
@@ -25,8 +27,9 @@ const PlaylistVideo = () => {
                  }
                })
                featureDispatch({type: "DELETE_PLAYLIST",payload: response.data.playlists})
+               showToast("success","video deleted from playlist")
              } catch (error) {
-               console.log(error.response)
+              showToast("error","something went wrong" )
              }
    }
 

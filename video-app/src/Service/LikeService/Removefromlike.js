@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Removefromlike = async(Id,featureDispatch) => {
+const Removefromlike = async(Id,featureDispatch,showToast) => {
     try {
         const response = await axios.delete(`/api/user/likes/${Id}`,{
           headers : {
@@ -9,8 +9,9 @@ const Removefromlike = async(Id,featureDispatch) => {
         })
         
         featureDispatch({type: "DISLIKED_VIDEO",payload: response.data.likes})
+        showToast("success","video removed from like video")
       } catch (error) {
-        console.log(error.response)
+        showToast("error","something went wrong")
       }
 }
 

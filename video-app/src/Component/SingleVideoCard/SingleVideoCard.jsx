@@ -13,6 +13,8 @@ import Addtolike from "../../Service/LikeService/Addtolike";
 import RemoveFromWatch from "../../Service/WatchLater/RemoveFromWatch";
 import AddtoWatch from "../../Service/WatchLater/AddtoWatch";
 import isVideoinPlaylist from "../../Utils/isVideoinPlaylist";
+import { useToast } from "../../Hooks/useToast";
+
 
 const SingleVideoCard = ({
   _id,
@@ -32,6 +34,7 @@ const SingleVideoCard = ({
   const { likedVideos, watchlater } = featureState;
   const likeVideo = isVideoinPlaylist(likedVideos, _id);
   const watchLaterVideo = isVideoinPlaylist(watchlater, _id);
+  const {showToast} = useToast()
 
   const savePlaylistModal = () => {
     if (user) {
@@ -44,9 +47,9 @@ const SingleVideoCard = ({
   const likeHandler = () => {
     if (user) {
       if (likeVideo) {
-        Removefromlike(_id, featureDispatch);
+        Removefromlike(_id, featureDispatch,showToast);
       } else {
-        Addtolike(video, featureDispatch);
+        Addtolike(video, featureDispatch,showToast);
       }
     } else {
       navigate("/login", { replace: true, state: { from: location } });
@@ -56,9 +59,9 @@ const SingleVideoCard = ({
   const watchHandler = () => {
     if (user) {
       if (watchLaterVideo) {
-        RemoveFromWatch(_id, featureDispatch);
+        RemoveFromWatch(_id, featureDispatch,showToast);
       } else {
-        AddtoWatch(video, featureDispatch);
+        AddtoWatch(video, featureDispatch,showToast);
       }
     } else {
       navigate("/login", { replace: true, state: { from: location } });

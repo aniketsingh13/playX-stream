@@ -4,6 +4,7 @@ import Navbar from "../../../Component/Navbar/Navbar";
 import { Link,  useLocation,  useNavigate} from 'react-router-dom';
 import axios from "axios";
 import { useAuth } from "../../../Context/AuthContext";
+import { useToast } from "../../../Hooks/useToast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,8 @@ const Login = () => {
   const [error,setError] = useState(null)
   const {setUser} = useAuth();
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
+  const {showToast} = useToast()
   
   const loginHandler = async(e) => {
     e.preventDefault();
@@ -24,8 +26,10 @@ const Login = () => {
         localStorage.setItem("token",response.data.encodedToken)
         setUser(response.data.foundUser)
         navigate(location.state?.from?.pathname || "/", { replace: true })
+        showToast("success","Logged in!!")
       } catch (error) {
         console.log(error.response);
+        showToast("error","something went wrong")
         setError("something went worng 🥺")
       }
   }

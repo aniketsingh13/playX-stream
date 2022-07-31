@@ -2,7 +2,11 @@
 
 import axios from "axios";
 
-const Addtolike = async(video,featureDispatch) => 
+
+
+
+
+const Addtolike = async(video,featureDispatch,showToast) => 
 
 {
     try {
@@ -15,8 +19,9 @@ const Addtolike = async(video,featureDispatch) =>
         })
         
         featureDispatch({type: "LIKED_VIDEO", payload: response.data.likes})
+        showToast("success","video added to like video")
       } catch (error) {
-        console.log(error.response)
+        showToast("error","somenthing went wrong")
       }
 }
 

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 
-const ClearHistory = async(featureDispatch) => {
+const ClearHistory = async(featureDispatch,showToast) => {
   try {
       const response = await axios.delete("/api/user/history/all",{
           headers : {
@@ -9,8 +9,9 @@ const ClearHistory = async(featureDispatch) => {
           }
       })
       featureDispatch({type: "HISTORY",payload: response.data.history})
+      showToast("success","videos removed from history")
   } catch (error) {
-      console.log(error.response)
+      showToast("error","something went wrong")
   }
 }
 

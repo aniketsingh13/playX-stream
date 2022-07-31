@@ -4,13 +4,15 @@ import { Aside, Navbar, VideoCard } from "../../Component";
 import { useFeature } from "../../Context/FeatureContext";
 import ClearHistory from "../../Service/HistoryService/ClearHistory";
 import { Link } from "react-router-dom";
+import { useToast } from "../../Hooks/useToast";
 
 const History = () => {
   const { featureDispatch, featureState } = useFeature();
   const { history } = featureState;
+  const {showToast} = useToast()
 
   const historyClearHandler = () => {
-    ClearHistory(featureDispatch);
+    ClearHistory(featureDispatch,showToast);
   };
 
   return (
