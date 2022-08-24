@@ -83,7 +83,7 @@ const {email,password,firstName,lastName,confirmPassword} = state;
             />
           </div>
           <div className=" mt-l ">
-            <label className="Signup-email-label font-s">Email Address</label>
+            <label className="Signup-email-label font-s">Username</label>
             <input
               type="text"
               className="f-s mt-s "
@@ -152,6 +152,7 @@ const {email,password,firstName,lastName,confirmPassword} = state;
               id="remember"
               name="remember"
               className="Signup-checkbox"
+              required
             />
             <label className="Signup-text font-l f-s pl-s">
               I accept all term & conditions
